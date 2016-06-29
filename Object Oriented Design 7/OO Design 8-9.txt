@@ -1,0 +1,27 @@
+Create a new account for a customer
+
+Generate an (ATM) card for the new customer
+
+Create the Customer object and give it an ATM card
+
+Create the BankComputer that will hold the account
+
+Add the customer account to the bank computer
+
+Create a network that will hold every bank computer and all the accounts they hold
+
+Add the BankComputer to the BankNetwork
+
+Create the ATM machine that will allow access to all BankComputers in the BankNetwork
+
+Check with the ATM to find out if the card is readable
+
+Check with the BankNetwork to see if the cards member bank is part of the network
+
+customersATMCard and the PIN are verified by the ATM
+
+Asks the customer whether to withdrawal money from checking or savings
+
+Asks the customer how much money they want to withdrawal
+
+Provides information on the transaction

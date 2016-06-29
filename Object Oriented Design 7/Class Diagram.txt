@@ -1,0 +1,169 @@
+---------------------------------
+:Account
+---------------------------------
+- bankID:int
+- acctNumber:int
+- customerName:String
+- acctType:String
+- acctBalance:double
+- pin:int
+- stripNumber:int
+
+- accountNumberIncrementor:int = 100000 (STATIC)
+
+---------------------------------
++ Account(bankID:int, customerName:String, acctType:String, acctBalance:double, pint:int)
+
++ getBankID():int
++ getAcctNumber():int
++ getCustomerName():String
++ getAcctType():String
++ getAcctBalance():double
++ setAcctBalance(newAcctBalance:double):void
++ getPIN():int
++ getStripNumber():int
+
++ generateStripNumber(bankID):int 
++ generateAccountNumber(stripNumber:int, acctType:String)
+
+_________________________________
+
+
+ooooooooooooooooooooooooooooooooo
+
+
+---------------------------------
+:Card
+---------------------------------
+- pin:int
+- stripNumber:int
+
+---------------------------------
++ Card(stripNumber:int):void
++ Card(pin:int,stripNumber):void
+
++ getPIN():int
++ getStripNumber():int
++ setPIN(pin:int):void
++ setStripNumber(stripNumber:int):void
+
+---------------------------------
+
+
+ooooooooooooooooooooooooooooooooo
+
+
+---------------------------------
+:Customer
+---------------------------------
+- customersATMCard:Card
+
+---------------------------------
++ Customer(newATMCard:Card):void
++ getATMCard():Card
+
+---------------------------------
+
+
+ooooooooooooooooooooooooooooooooo
+
+
+---------------------------------
+:BankComputer
+---------------------------------
+- bankID:int = 9
+- bankName:String
+- accounts:ArrayList<Account>
+
++ numberOfBanks:int = 0 (STATIC)
+
+---------------------------------
++ BankComputer(String newBankName):void
+
++ addAcctToBank(newAccount:Account):void
++ getBankID():int
++ verifyTheStripNumber(theCard:Card):boolean
++ verifyThePIN(theTransaction:Transaction):boolean
++ requestWithdrawalAmt(theTransaction:Transaction):void
+
+---------------------------------
+
+
+ooooooooooooooooooooooooooooooooo
+
+
+---------------------------------
+:BankNetwork
+---------------------------------
+- banksInDatabase:ArrayList<BankComputer>
+
+---------------------------------
++ addBankToNetwork(newBank:BankComputer):void
++ isATMCardsBankInNetwork(theCard:Card):boolean
++ getFirstTwoDigits(stripNumber:int):int (STATIC)
++ verifyThePIN(theTransaction:Transaction):boolean
++ requestWithdrawalAmt(theTransaction:Transaction):void
+
+---------------------------------
+
+
+ooooooooooooooooooooooooooooooooo
+
+
+---------------------------------
+:ATM
+---------------------------------
+- theTransaction:Transaction
+- networkOfBanksOnATM:BankNetwork
++ userInput:Scanner (STATIC)
+
+---------------------------------
++ ATM(networkOfBanksOnATM:BankNetwork)
++ isStripReadable(theCard:Card):boolean
++ isATMCardsBankInNetwork(theCard:Card):boolean
++ insertPIN(theCard:Card, pin:int):boolean
++ pickAcctToAccess():void
++ amountToWithdrawal():void
++ getTransactionInfo():void
+
+---------------------------------
+
+
+ooooooooooooooooooooooooooooooooo
+
+
+---------------------------------
+:Transaction
+---------------------------------
+- bankID:int
+- currentDateTime:Date
+- customerName:String
+- acctBalance:double
+- withdrawalAmt:int
+- acctNumberUsed:int
+- pin:int
+- stripNumber:int
+- acctToWithdrawalFrom:int
+- didCardVerify:boolean
+
+---------------------------------
++ Transaction(stripNumber:int)
++ getBankID():int
++ getCustomerName():String
++ setCustomerName(customerName:String):void
++ getCurrentDateTime():String
++ getPIN():int
++ setPIN(pin:int)
++ setStripNumber(stripNumber:int)
++ getStripNumber():int
++ setDidTheCardVerify(cardVerified:boolean):void
++ get ():boolean
++ setAcctToWithdrawalFrom(acctToWithdrawalFrom:int):void
++ getAcctToWithdrawalFrom():int
++ setWithdrawalAmt(withdrawalAmt:int):void
++ getWithdrawalAmt():int
++ getAccountNumberUsed():int
++ setAcctBalance(newAcctBalance:double):void
++ getAcctBalance():double
+
+---------------------------------x
